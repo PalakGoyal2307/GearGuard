@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_gear_request_kanban" model="ir.ui.view">
+        <field name="name">gear.request.kanban</field>
+        <field name="model">gear.request</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="stage" class="o_kanban_small_column">
+                <field name="id"/><field name="technician_id"/><field name="scheduled_date"/>
+                <field name="request_type"/><field name="activity_state"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="o_kanban_record_top"><strong><field name="subject"/></strong></div>
+                            <div class="o_kanban_record_body">
+                                <span t-if="record.request_type.raw_value == 'preventive'" class="badge text-bg-info">Preventive</span>
+                                <span t-if="record.request_type.raw_value == 'corrective'" class="badge text-bg-warning">Corrective</span>
+                            </div>
+                            <div class="o_kanban_record_bottom">
+                                <div class="oe_kanban_bottom_left"><field name="scheduled_date" widget="remaining_days"/></div>
+                                <div class="oe_kanban_bottom_right"><field name="technician_id" widget="many2one_avatar_user"/></div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_gear_request_calendar" model="ir.ui.view">
+        <field name="name">gear.request.calendar</field>
+        <field name="model">gear.request</field>
+        <field name="arch" type="xml">
+            <calendar string="Maintenance" date_start="scheduled_date" color="technician_id" mode="month">
+                <field name="subject"/><field name="equipment_id"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record id="view_gear_request_form" model="ir.ui.view">
+        <field name="name">gear.request.form</field>
+        <field name="model">gear.request</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="stage" widget="statusbar" options="{'clickable': '1'}"/>
+                </header>
+                <sheet>
+                    <div class="oe_title"><h1><field name="subject"/></h1></div>
+                    <group>
+                        <group>
+                            <field name="equipment_id"/><field name="team_id"/><field name="technician_id"/>
+                        </group>
+                        <group>
+                            <field name="scheduled_date"/><field name="request_type"/><field name="duration"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_gear_request" model="ir.actions.act_window">
+        <field name="name">Maintenance Requests</field>
+        <field name="res_model">gear.request</field>
+        <field name="view_mode">kanban,calendar,tree,form,graph,pivot</field>
+    </record>
+
+    <record id="view_gear_request_graph" model="ir.ui.view">
+        <field name="name">gear.request.graph</field>
+        <field name="model">gear.request</field>
+        <field name="arch" type="xml">
+            <graph string="Maintenance Analysis" type="bar">
+                <field name="team_id"/>
+                <field name="stage"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_gear_request_pivot" model="ir.ui.view">
+        <field name="name">gear.request.pivot</field>
+        <field name="model">gear.request</field>
+        <field name="arch" type="xml">
+            <pivot string="Maintenance Analysis">
+                <field name="team_id" type="row"/>
+                <field name="stage" type="col"/>
+            </pivot>
+        </field>
+    </record>
+</odoo>

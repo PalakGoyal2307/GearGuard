@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_gear_team_form" model="ir.ui.view">
+        <field name="name">gear.team.form</field>
+        <field name="model">gear.team</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="member_ids" widget="many2many_tags"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_gear_team" model="ir.actions.act_window">
+        <field name="name">Maintenance Teams</field>
+        <field name="res_model">gear.team</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

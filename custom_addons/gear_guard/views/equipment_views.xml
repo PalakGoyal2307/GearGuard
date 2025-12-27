@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_gear_equipment_search" model="ir.ui.view">
+        <field name="name">gear.equipment.search</field>
+        <field name="model">gear.equipment</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="serial_number"/>
+                <field name="department_id"/>
+                <filter string="Scrapped" name="scrapped" domain="[('is_scrapped', '=', True)]"/>
+                <filter string="Active" name="active" domain="[('is_scrapped', '=', False)]"/>
+                <group expand="1" string="Group By">
+                    <filter string="Department" name="grp_department" context="{'group_by': 'department_id'}"/>
+                    <filter string="Team" name="grp_team" context="{'group_by': 'maintenance_team_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    
+    <record id="view_gear_equipment_form" model="ir.ui.view">
+        <field name="name">gear.equipment.form</field>
+        <field name="model">gear.equipment</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_requests" type="object" class="oe_stat_button" icon="fa-wrench">
+                            <field name="request_count" widget="statinfo" string="Requests"/>
+                        </button>
+                    </div>
+                    <div class="oe_title"><h1><field name="name"/></h1></div>
+                    <group>
+                        <group>
+                            <field name="serial_number"/>
+                            <field name="department_id"/>
+                            <field name="is_scrapped"/>
+                        </group>
+                        <group>
+                            <field name="maintenance_team_id"/>
+                            <field name="technician_id"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_gear_equipment" model="ir.actions.act_window">
+        <field name="name">Equipments</field>
+        <field name="res_model">gear.equipment</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_gear_guard_root" name="GearGuard" sequence="10"/>
+    <menuitem id="menu_gear_dashboard" name="Dashboard" parent="menu_gear_guard_root" action="action_gear_request" sequence="1"/>
+    <menuitem id="menu_gear_equipments" name="Equipments" parent="menu_gear_guard_root" action="action_gear_equipment" sequence="2"/>
+    <menuitem id="menu_gear_teams" name="Teams" parent="menu_gear_guard_root" action="action_gear_team" sequence="3"/>
+</odoo>
