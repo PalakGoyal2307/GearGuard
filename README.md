@@ -196,3 +196,13 @@ sudo service odoo restart
 ![Add new maintenance request](https://github.com/user-attachments/assets/e97539af-108c-40f8-9187-66e515bfb344)
 
 ---
+
+## Team Members 
+
+* Palak Goyal
+
+* Mrunali Kamerikar
+
+* Riddhima Taose
+
+* Viral Agrawal 
