@@ -50,23 +50,38 @@ Built on the **Odoo 17** framework (compatible with v14+), it leverages Odoo's p
 ## 📂 Project Directory Structure
 
 ```text
-gearguard/
-│
-├── __init__.py             # Initializes the Python package
-├── __manifest__.py         # Odoo module metadata (dependencies, version, etc.)
-├── models/                 # Backend Logic (Database Schema)
-│   ├── __init__.py
-│   └── models.py           # Defines 'gearguard.asset' and 'gearguard.request'
-│
-├── security/               # Access Rights
-│   └── ir.model.access.csv # Permissions for models
-│
-├── views/                  # Frontend UI (XML)
-│   └── views.xml           # Form, Tree, and Kanban views
-│
-└── static/                 # Static assets
-    └── description/
-        └── icon.png        # Module icon (optional)
+custom_addons/
+└── gear_guard/
+    ├── __init__.py
+    ├── __manifest__.py
+    │
+    ├── controllers/
+    │   ├── __init__.py
+    │   └── controllers.py
+    │
+    ├── demo/
+    │   └── demo.xml
+    │
+    ├── models/
+    │   ├── __init__.py
+    │   ├── equipment.py
+    │   ├── maintenance_request.py
+    │   ├── team.py
+    │   └── models.py
+    │
+    ├── security/
+    │   └── ir.model.access.csv
+    │
+    ├── views/
+    │   ├── equipment_views.xml
+    │   ├── maintenance_request_views.xml
+    │   ├── team_views.xml
+    │   ├── menu.xml
+    │   ├── views.xml
+    │   └── templates.xml
+    │
+    └── __pycache__/
+
 
 ```
 ---
