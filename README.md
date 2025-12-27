@@ -199,10 +199,10 @@ sudo service odoo restart
 
 ## Team Members 
 
-* Palak Goyal
+* **Palak Goyal:**  Frontend / UX & Views Specialist
 
-* Mrunali Kamerikar
+* **Mrunali Kamerikar:**  Backend / Data Model Architect 
 
-* Riddhima Taose
+* **Riddhima Taose:**  Automation, Reports & Advanced Features Lead
 
-* Viral Agrawal 
+* **Viraj Agrawal:**  Product Owner / Integration & Presentation Lead 
