@@ -105,7 +105,7 @@ Before installing, ensure you have the following:
 Download the gearguard folder and place it into your Odoo addons directory.
 
 ```
-cd /path/to/your/odoo/addons
+cd /path/to/your/odoo/custom_addons
 # If using git
 git clone [https://github.com/yourusername/gearguard.git](https://github.com/yourusername/gearguard.git)
 
